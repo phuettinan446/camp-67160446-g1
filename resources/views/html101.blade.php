@@ -1,52 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Workshop #HTML - FORM</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: "Sarabun", sans-serif;
-            color: #000;
-        }
-        h1 {
-            font-family: "Times New Roman", serif;
-            font-weight: bold;
-            color: #000;
-        }
-        .row {
-            margin-bottom: 5px;
-            /* คำสั่งจัดกึ่งกลางแนวตั้ง (สำหรับที่อยู่และหัวข้ออื่นๆ) */
-            display: flex;
-            align-items: center; 
-        }
-        .col-label {
-            width: 150px; 
-            font-weight: bold;
-        }
-        input[type="text"], 
-        input[type="number"], 
-        input[type="date"],
-        textarea,
-        select {
-            border: 1px solid #767676;
-            padding: 2px;
-            border-radius: 2px;
-        }
-        .input-std {
-            width: 250px; 
-        }
-    </style>
-</head>
-<body>
-    <div class="container mt-4" style="max-width: 600px;">
-        <h1 class="mb-4">Workshop #HTML - FORM</h1>
-        
+@extends('template.default')
+@section('title' , 'Workshop FORM')
+@section('content')
+<h1>Workshop #HTML - FORM</h1>
         <form action="#" method="post" enctype="multipart/form-data">
-            
+
+
             <div class="row">
                 <div class="col-label">ชื่อ</div>
                 <div class="col">
@@ -80,7 +38,7 @@
                 <div class="col">
                     <input type="radio" name="gender" id="male" value="male">
                     <label for="male" style="margin-right: 10px;">ชาย</label>
-                    
+
                     <input type="radio" name="gender" id="female" value="female">
                     <label for="female">หญิง</label>
                 </div>
@@ -142,8 +100,37 @@
                     <button type="submit" style="padding: 2px 6px; margin-left: 95px;">Submit</button>
                 </div>
             </div>
-
         </form>
-    </div>
-</body>
-</html>
+
+
+@endsection
+
+
+@push('script')
+    <script>
+        let clickMe = function(){
+            console.log(document.getElementById('firstname'))
+            firstnam.value = "from ClickMe"
+            console.log();
+
+        }
+
+        let myFunc = (callback) =>{
+            callback("in Callback")
+        }
+        callMe = (param) => {
+            console.log(param);
+        }
+
+        myFunc(callMe)
+
+        let myvar1 = 1
+        let myvar2 = "1"
+
+        myvar2 = parseInt(myvar2)
+
+        console.log(myvar2 + myvar1 + "\n\n\nทดสอบ");
+        console.log(1 === '1');
+
+    </script>
+@endpush
