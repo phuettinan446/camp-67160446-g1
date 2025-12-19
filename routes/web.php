@@ -9,3 +9,4 @@ Route::get('/', function () {
 Route :: get('/se' , function(){
     return view('template.default');
 });
+

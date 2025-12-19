@@ -7,7 +7,7 @@
     <h1 class="mb-4">Workshop #HTML - FORM</h1>
 
     {{-- 1. เพิ่ม ID ให้ Form เพื่อเรียกใช้ใน JS --}}
-    <form action="#" method="post" enctype="multipart/form-data" id="workshopForm">
+    <form action="#" method="get" enctype="multipart/form-data" id="workshopForm">
 
         <div class="mb-3">
             <label for="firstname" class="form-label">ชื่อ</label>
