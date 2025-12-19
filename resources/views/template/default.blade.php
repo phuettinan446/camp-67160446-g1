@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-    <title>Workshop #HTML - FORM@@yield('title')</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>Workshop #HTML - FORM @yield('title')</title>
+
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -17,36 +19,40 @@
             font-weight: bold;
             color: #000;
         }
-        .row {
-            margin-bottom: 5px;
-            /* คำสั่งจัดกึ่งกลางแนวตั้ง (สำหรับที่อยู่และหัวข้ออื่นๆ) */
-            display: flex;
-            align-items: center;
+
+        /* --- CSS ที่เพิ่มเข้ามาใหม่ --- */
+
+        /* ข้อความแจ้งเตือนสีแดง (ซ่อนไว้ก่อน) */
+        .error-msg {
+            color: #dc3545;      /* สีแดง */
+            font-size: 0.85rem;
+            margin-top: 4px;
+            display: none;       /* สำคัญ: ซ่อนเป็นค่าเริ่มต้น */
+            font-weight: 500;
         }
-        .col-label {
-            width: 150px;
-            font-weight: bold;
+
+        /* กรอบสีแดง (เมื่อกรอกผิด/ไม่กรอก) */
+        .input-error {
+            border: 2px solid #dc3545 !important;
+            background-color: #fff8f8;
         }
-        input[type="text"],
-        input[type="number"],
-        input[type="date"],
-        textarea,
-        select {
-            border: 1px solid #767676;
-            padding: 2px;
-            border-radius: 2px;
-        }
-        .input-std {
-            width: 250px;
+
+        /* กรอบสีเขียว (เมื่อกรอกครบถ้วน) */
+        .input-success {
+            border: 2px solid #198754 !important;
+            background-color: #f8fff9;
         }
     </style>
+
     @stack('styles')
-    </head>
-    <body>
+</head>
+<body>
     <div class="container mt-4">
         <h1>File Default</h1>
+        <hr>
         @yield('content')
     </div>
+
     @stack('script')
-    </body>
+</body>
 </html>
