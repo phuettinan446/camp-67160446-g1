@@ -1,59 +1,27 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <title>Workshop #HTML - FORM @yield('title')</title>
+<!--file : resources/viwes/html101.blade.php -->
+<decoct html>
+    <html>
+        <head>
+            <title>HTML - @yield('title')</title>
+            <link rel="stylesheet" href="css/bootstrap.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+                <style>
+                body {
+                    font-family: "Sarabun", sans-serif;
+                }
+            </style>
+            @stack('styles')
+        </head>
 
-    <style>
-        body {
-            font-family: "Sarabun", sans-serif;
-            color: #000;
-        }
-        h1 {
-            font-family: "Times New Roman", serif;
-            font-weight: bold;
-            color: #000;
-        }
+    <body>
+        <div class="container mt-4">
+            <h1>@yield('header')</h1>
+            @yield('content')
+        </div>
+        @stack('scripts')
+    </body>
 
-        /* --- CSS ที่เพิ่มเข้ามาใหม่ --- */
-
-        /* ข้อความแจ้งเตือนสีแดง (ซ่อนไว้ก่อน) */
-        .error-msg {
-            color: #dc3545;      /* สีแดง */
-            font-size: 0.85rem;
-            margin-top: 4px;
-            display: none;       /* สำคัญ: ซ่อนเป็นค่าเริ่มต้น */
-            font-weight: 500;
-        }
-
-        /* กรอบสีแดง (เมื่อกรอกผิด/ไม่กรอก) */
-        .input-error {
-            border: 2px solid #dc3545 !important;
-            background-color: #fff8f8;
-        }
-
-        /* กรอบสีเขียว (เมื่อกรอกครบถ้วน) */
-        .input-success {
-            border: 2px solid #198754 !important;
-            background-color: #f8fff9;
-        }
-    </style>
-
-    @stack('styles')
-</head>
-<body>
-    <div class="container mt-4">
-        <h1></h1>
-
-        
-        @yield('content')
-    </div>
-
-    @stack('script')
-</body>
 </html>
