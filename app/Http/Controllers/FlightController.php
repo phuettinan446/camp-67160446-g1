@@ -13,7 +13,7 @@ class FlightController extends Controller
     public function index()
     {
         $data['flight'] = Flight::all();
-        return view('flights.index', $data);
+        return view('flight.index', $data);
     }
     /**
      * Store a newly created resource in storage.
@@ -58,7 +58,7 @@ class FlightController extends Controller
         $data['flight_update'] = Flight::find($id);
         $data['flight'] = Flight::all();
 
-        return view('flights.update', $data);
+        return view('flight.update', $data);
     }
 
     /**
@@ -87,6 +87,8 @@ class FlightController extends Controller
         //
         $flight = Flight::find($id);
         $flight->delete();
+        $max = \DB::table('flight')->max('id') + 1;
+        \DB::statement("ALTER TABLE flight AUTO_INCREMENT = $max");
         return redirect('/flight');
     }
 }

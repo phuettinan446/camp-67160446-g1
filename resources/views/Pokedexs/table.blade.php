@@ -27,7 +27,14 @@
         <td>{{ $item->hp }}</td>
         <td>{{ $item->attack }}</td>
         <td>{{ $item->defense }}</td>
-        <td>{{ $item->image_url }}</td>
+        <td>
+            @if($item->image_url)
+                    <img src="{{ $item->image_url }}" alt="pokemon" width="50" style="border-radius: 5px; border: 1px solid #ddd;">
+                @else
+                    <small class="text-muted">ไม่มีรูป</small>
+                @endif
+        </td>
+        
         <td>
             <a class="btn btn-warning" href="{{ url('/Pokedexs/' . $item->id . '/edit') }}">
                 แก้ไข

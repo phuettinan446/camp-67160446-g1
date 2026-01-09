@@ -1,39 +1,44 @@
-@extends('template.default')
+<h1>Pokedexs Lists</h1>
 
-@section('content')
-    <h1>Pokedexs Update</h1>
-    <form action="{{ url('/Pokedexs/'.$Pokedexs_update->id) }}" method="post">
-        @csrf
-        @method('PUT')
-        <lable for="name">Name</lable>
-        <input class="form-control" type="text" name="name" id="name" value="{{$Pokedexs_update->name}}">
-
-        <lable for="type">Type</lable>
-        <input class="form-control" type="text" name="type" id="type" value="{{$Pokedexs_update->type}}">
-
-        <lable for="species">Species</lable>
-        <input class="form-control" type="number" name="species" id="species" value="{{$Pokedexs_update->species}}">
-
-        <lable for="height">Height</lable>
-        <input class="form-control" type="decimal" name="height" id="height" value="{{$Pokedexs_update->height}}">
-
-        <lable for="weight">Weight</lable>
-        <input class="form-control" type="number" name="weight" id="weight" value="{{$Pokedexs_update->weight}}">
-
-        <lable for="hp">Hp</lable>
-        <input class="form-control" type="number" name="hp" id="hp" value="{{$Pokedexs_update->hp}}">
-
-        <lable for="attack">Attack</lable>
-        <input class="form-control" type="number" name="attack" id="attack" value="{{$Pokedexs_update->attack}}">
-
-        <lable for="defense">Defense</lable>
-        <input class="form-control" type="number" name="defense" id="defense" value="{{$Pokedexs_update->defense}}">
-
-        <lable for="image_url">Image_url</lable>
-        <input class="form-control" type="number" name="image_url" id="image_url" value="{{$flight_update->image_url}}">
-
-
-        <button class="btn btn-primary mt-3" type="submit">บันทึก</button>
-    </form>
-    @include('Pokedexs.table')
-@endsection
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Species</td>
+            <td>Height</td>
+            <td>Weight</td>
+            <td>Hp</td>
+            <td>Attack</td>
+            <td>Defense</td>
+            <td>Image_url</td>
+            <td></td>
+        </tr>
+    </thead>
+    <?php foreach($Pokedexs as $item) {?>
+    <tr>
+        <td>{{ $item->id }}</td>
+        <td>{{ $item->name }}</td>
+        <td>{{ $item->type }}</td>
+        <td>{{ $item->species }}</td>
+        <td>{{ $item->height }}</td>
+        <td>{{ $item->weight }}</td>
+        <td>{{ $item->hp }}</td>
+        <td>{{ $item->attack }}</td>
+        <td>{{ $item->defense }}</td>
+        <td>{{ $item->image_url }}</td>
+        <td>
+            <a class="btn btn-warning" href="{{ url('/flight/' . $item->id . '/edit') }}">
+                แก้ไข
+            </a>
+            <form
+                style="display:inline-block"
+                action="{{url('/flight/'. $item->id)}}" method="post">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger">ลบ</button>
+            </form>
+        </td>
+    </tr>
+    <?php } ?>

@@ -14,5 +14,5 @@
         <input class="form-control" type="decimal" name="price" id="price">
         <button class="btn btn-primary mt-3" type="submit">บันทึก</button>
     </form>
-    @include('flights.table')
+    @include('flight.table')
 @endsection
