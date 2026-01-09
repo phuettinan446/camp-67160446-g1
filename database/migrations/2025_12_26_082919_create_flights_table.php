@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('airline');
             $table->integer('number_of_seats');
             $table->decimal('price');
-            $table->timestamps(price);
+            $table->timestamps();
         });
     }
 

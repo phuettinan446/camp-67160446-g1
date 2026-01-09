@@ -18,3 +18,5 @@ Route::get('/me',[App\Http\Controllers\MyController::class, 'html101']);
 Route::post('/me',[App\Http\Controllers\MyController::class, 'me']);
 
 Route::resource('/flight', App\Http\Controllers\FlightController::class);
+
+Route::resource('/Pokedexs', App\Http\Controllers\PokedexsController::class);
